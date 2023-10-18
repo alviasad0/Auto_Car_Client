@@ -34,7 +34,8 @@ const AddProduct = () => {
           .then((data) => {
               console.log(data)
               if (data.insertedId) {
-                   Swal.fire("Good job!", "Product has added in the database!", "success");
+                  Swal.fire("Good job!", "Product has added in the database!", "success");
+                  form.reset()
                   }
           });
     }
