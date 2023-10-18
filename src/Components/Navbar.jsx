@@ -1,6 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
+import { useContext } from "react";
 
 const Navbar = () => {
+ const { user, logOut } = useContext(AuthContext);
+
+
   const links = (
     <>
       <li className="text-xl font-medium">
@@ -27,8 +32,14 @@ const Navbar = () => {
           My Cart
         </NavLink>
       </li>
-    </>
-  );
+      </>
+      
+
+
+      
+    );
+    
+   
   return (
     <div>
       <div className="bg-gray-300">
@@ -57,6 +68,30 @@ const Navbar = () => {
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   {links}
+                  <div className="md:hidden">
+                    {user ? (
+                      <div>
+                        <img
+                          className="w-10 rounded-full mx-auto mt-2 mb-2"
+                          src={user.photoURL}
+                          alt=""
+                        />
+                        <li className="text-center text-lg font-semibold">
+                          {user.displayName}
+                        </li>
+                        <button
+                          onClick={logOut}
+                          className=" btn  btn-secondary  w-full mt-3 "
+                        >
+                          Log Out
+                        </button>
+                      </div>
+                    ) : (
+                      <button className="btn btn-secondary   ">
+                        <Link to="/login">Login</Link>
+                      </button>
+                    )}
+                  </div>
                 </ul>
               </div>
               <img src="" alt="" />
@@ -65,13 +100,28 @@ const Navbar = () => {
               <ul className="menu menu-horizontal px-1">{links}</ul>
             </div>
             <div className="navbar-end">
-              <div className="flex gap-4 items-center ">
-                <div className="hidden lg:contents">
-                  <button className=" invisible md:visible btn btn-secondary ">
-                    <Link to="/login">Login</Link>
+              {user ? (
+                <div className="flex gap-4 items-center ">
+                  <div className="invisible lg:visible">
+                    <img
+                      className="rounded-full w-10 mx-auto "
+                      src={user.photoURL}
+                      alt=""
+                    />
+                    <p className="font-semibold">{user?.displayName}</p>
+                  </div>
+                  <button
+                    onClick={logOut}
+                    className=" btn  btn-secondary  invisible md:visible "
+                  >
+                    Log Out
                   </button>
                 </div>
-              </div>
+              ) : (
+                <button className=" invisible md:visible btn btn-secondary ">
+                  <Link to="/login">Login</Link>
+                </button>
+              )}
             </div>
           </div>
         </div>

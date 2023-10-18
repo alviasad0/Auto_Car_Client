@@ -12,6 +12,7 @@ import AddProduct from './Pages/AddProduct'
 import BrandDetails from './Pages/BrandDetails';
 import ProductDetails from './Components/ProductDetails';
 import ProductUpdate from './Components/ProductUpdate';
+import AuthProvider from './Providers/AuthProvider'
 
 
 
@@ -55,8 +56,10 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-   <RouterProvider router={router}></RouterProvider>
-  </React.StrictMode>,
-)
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
+  </React.StrictMode>
+);
