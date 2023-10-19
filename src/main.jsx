@@ -13,6 +13,8 @@ import BrandDetails from './Pages/BrandDetails';
 import ProductDetails from './Components/ProductDetails';
 import ProductUpdate from './Components/ProductUpdate';
 import AuthProvider from './Providers/AuthProvider'
+import PrivateRouter from './PrivateRoute/PrivateRoute'
+import AddToCart from './Pages/AddToCart'
 
 
 
@@ -37,7 +39,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/addProduct",
-        element: <AddProduct></AddProduct>,
+        element: (
+          <PrivateRouter>
+            <AddProduct></AddProduct>
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/myCart",
+        element: (
+          <PrivateRouter>
+            <AddToCart></AddToCart>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/brandDetails/:brand_name",
@@ -45,12 +59,23 @@ const router = createBrowserRouter([
       },
       {
         path: "productDetails/:id",
-        element: <ProductDetails></ProductDetails>,
+        element: (
+          <PrivateRouter>
+            <ProductDetails></ProductDetails>
+          </PrivateRouter>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/products/${params.id}`),
       },
       {
         path: "productUpdate/:id",
-        element: <ProductUpdate></ProductUpdate>,
-        loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+        element: (
+          <PrivateRouter>
+            <ProductUpdate></ProductUpdate>
+          </PrivateRouter>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/products/${params.id}`),
       },
     ],
   },

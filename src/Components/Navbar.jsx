@@ -1,6 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { useContext } from "react";
+import { useEffect } from "react";
+import { themeChange } from "theme-change";
 
 const Navbar = () => {
  const { user, logOut } = useContext(AuthContext);
@@ -10,7 +12,11 @@ const Navbar = () => {
     <>
       <li className="text-xl font-medium">
         <NavLink
-          className={({ isActive }) => (isActive ? `text-red-500` : "")}
+          className={({ isActive }) =>
+            isActive
+              ? `text-green-600 border-green-800 underline border-2 `
+              : "text-green-600"
+          }
           to="/"
         >
           Home
@@ -18,7 +24,11 @@ const Navbar = () => {
       </li>
       <li className="text-xl font-medium">
         <NavLink
-          className={({ isActive }) => (isActive ? `text-red-500` : "")}
+          className={({ isActive }) =>
+            isActive
+              ? `text-green-600 border-green-800 underline border-2`
+              : "text-green-600"
+          }
           to="/addProduct"
         >
           Add Product
@@ -26,26 +36,39 @@ const Navbar = () => {
       </li>
       <li className="text-xl font-medium">
         <NavLink
-          className={({ isActive }) => (isActive ? `text-red-500` : "")}
+          className={({ isActive }) =>
+            isActive
+              ? `text-green-600 border-green-800 underline border-2`
+              : "text-green-600"
+          }
           to="/myCart"
         >
           My Cart
         </NavLink>
       </li>
-      </>
-      
-
-
-      
-    );
-    
+    </>
+  );
+    useEffect(() => {
+      themeChange(false);
+      // 👆 false parameter is required for react project
+    }, []);
    
   return (
-    <div>
-      <div className="bg-gray-300">
+    <div className="mx-auto max-w-screen-2xl ">
+      <div
+        className="bg-green-50 rounded-xl mt-6 mb-10 "
+        data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1500"
+      >
         <div className="">
           <div className="navbar ">
-            <div className="navbar-start">
+            <div
+              className="navbar-start"
+              data-aos="fade-right"
+              data-aos-easing="linear"
+              data-aos-duration="3000"
+            >
               <div className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
                   <svg
@@ -68,6 +91,12 @@ const Navbar = () => {
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   {links}
+                  <select data-choose-theme>
+                    <option value="" className="">
+                      light
+                    </option>
+                    <option value="dark">Dark</option>
+                  </select>
                   <div className="md:hidden">
                     {user ? (
                       <div>
@@ -81,25 +110,45 @@ const Navbar = () => {
                         </li>
                         <button
                           onClick={logOut}
-                          className=" btn  btn-secondary  w-full mt-3 "
+                          className=" btn  btn-success tracking-widest  w-full mt-3 "
                         >
                           Log Out
                         </button>
                       </div>
                     ) : (
-                      <button className="btn btn-secondary   ">
+                      <button className="btn btn-success  tracking-widest ">
                         <Link to="/login">Login</Link>
                       </button>
                     )}
                   </div>
                 </ul>
               </div>
-              <img src="" alt="" />
+              <img
+                src="https://i.ibb.co/LvTvgkr/logo-fotor-20231019183055.png"
+                className="w-[250px]  h-[150px]"
+                alt=""
+              />
             </div>
-            <div className="navbar-center hidden lg:flex">
-              <ul className="menu menu-horizontal px-1">{links}</ul>
+            <div
+              className="navbar-center hidden lg:flex"
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="3000"
+            >
+              <ul className="menu menu-horizontal px-1">
+                {links}
+                <select className="font-bold border-none p-2" data-choose-theme>
+                  <option value="">light</option>
+                  <option value="dark">Dark</option>
+                </select>
+              </ul>
             </div>
-            <div className="navbar-end">
+            <div
+              className="navbar-end"
+              data-aos="fade-left"
+              data-aos-easing="linear"
+              data-aos-duration="3000"
+            >
               {user ? (
                 <div className="flex gap-4 items-center ">
                   <div className="invisible lg:visible">
@@ -112,13 +161,13 @@ const Navbar = () => {
                   </div>
                   <button
                     onClick={logOut}
-                    className=" btn  btn-secondary  invisible md:visible "
+                    className=" btn  btn-success tracking-widest invisible md:visible "
                   >
                     Log Out
                   </button>
                 </div>
               ) : (
-                <button className=" invisible md:visible btn btn-secondary ">
+                <button className=" invisible md:visible btn tracking-widest btn-success ">
                   <Link to="/login">Login</Link>
                 </button>
               )}

@@ -1,14 +1,17 @@
-import { useParams } from "react-router-dom";
+
+import { useLoaderData } from "react-router-dom";
 import Navbar from "./Navbar";
 
 
 const ProductDetails = () => {
-    const {name} = useParams()
-    console.log(name);
+    const product = useLoaderData()
+    console.log(product);
     return (
         <div>
             <Navbar></Navbar>
-            <h1>this is the product details</h1>
+            <div>
+                
+           </div>
         </div>
     );
 };
