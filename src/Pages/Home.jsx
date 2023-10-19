@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar";
 import Banner from "../Components/Banner";
 import BrandSection from "../Components/BrandSection";
 import WhyAutoCar from "../Components/WhyAutoCar";
+import CustomerReview from "../Components/CustomerReview";
 
 
 
@@ -13,8 +14,9 @@ const Home = () => {
         <Navbar></Navbar>
         <Banner></Banner>
         <WhyAutoCar></WhyAutoCar>
-        <BrandSection></BrandSection>
-        <h1>this isthe homme</h1>
+            <BrandSection></BrandSection>
+            <CustomerReview></CustomerReview>
+        <h1>this is the homme</h1>
       </div>
     );
 };
