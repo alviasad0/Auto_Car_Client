@@ -4,6 +4,7 @@ import Banner from "../Components/Banner";
 import BrandSection from "../Components/BrandSection";
 import WhyAutoCar from "../Components/WhyAutoCar";
 import CustomerReview from "../Components/CustomerReview";
+import Footer from "../Components/Footer";
 
 
 
@@ -16,7 +17,7 @@ const Home = () => {
         <WhyAutoCar></WhyAutoCar>
             <BrandSection></BrandSection>
             <CustomerReview></CustomerReview>
-        <h1>this is the homme</h1>
+        <Footer></Footer>
       </div>
     );
 };

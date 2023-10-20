@@ -40,12 +40,14 @@ const AuthProvider = ({ children }) => {
       photoURL: userPic,
     });
   };
+
+
   /* logOut */
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
   };
-  /*  google log in  */
+  
 
   /*  on auth state change  */
   useEffect(() => {
@@ -59,6 +61,9 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   console.log(user);
+
+
+  
   /* all exports  */
   const allExports = {
     user,

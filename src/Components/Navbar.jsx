@@ -161,13 +161,13 @@ const Navbar = () => {
                   </div>
                   <button
                     onClick={logOut}
-                    className=" btn  btn-success tracking-widest invisible md:visible "
+                    className=" btn  btn-success tracking-widest text-lg font-bold invisible md:visible "
                   >
                     Log Out
                   </button>
                 </div>
               ) : (
-                <button className=" invisible md:visible btn tracking-widest btn-success ">
+                <button className=" invisible md:visible  btn tracking-widest btn-success ">
                   <Link to="/login">Login</Link>
                 </button>
               )}

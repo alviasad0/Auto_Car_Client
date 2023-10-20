@@ -52,6 +52,7 @@ const router = createBrowserRouter([
             <AddToCart></AddToCart>
           </PrivateRouter>
         ),
+        
       },
       {
         path: "/brandDetails/:brand_name",

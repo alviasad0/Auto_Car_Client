@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import auth from "../../firebase/firebase.config";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
+import Footer from "../Components/Footer";
 
 
 const Register = () => {
@@ -99,16 +100,21 @@ const Register = () => {
       <div>
         <Navbar></Navbar>
         <div
-          data-aos="flip-left"
-          data-aos-easing="ease-out-cubic"
-          data-aos-duration="2000"
-          className="bg-red-50 container mx-auto md:p-10 mt-10 rounded-lg"
+          data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+          className="bg-green-50 container mx-auto md:p-10 mt-10 rounded-lg"
         >
           <div className="text-center ">
             <h1 className="text-5xl text-black font-bold">Register now!</h1>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
-            <div className="col-span-3">
+            <div
+              className="col-span-3"
+              data-aos="fade-right"
+              data-aos-easing="linear"
+              data-aos-duration="3000"
+            >
               <form onSubmit={handleRegister} className="card-body">
                 <div className="form-control">
                   <label className="label">
@@ -181,13 +187,15 @@ const Register = () => {
                   />
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-secondary">Register</button>
+                  <button className="btn btn-success text-xl  font-bold tracking-widest">
+                    Register
+                  </button>
                 </div>
                 <p className="text-lg text-black  font-medium">
                   Already have an account ?
                   <Link
                     to="/login"
-                    className="text-violet-600 text-xl font-bold"
+                    className="text-green-600 text-xl font-bold"
                   >
                     Login
                   </Link>
@@ -200,8 +208,8 @@ const Register = () => {
               <div>
                 <div
                   data-aos="fade-left"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="2000"
+                  data-aos-easing="linear"
+                  data-aos-duration="3000"
                 >
                   <div>
                     <div>
@@ -212,12 +220,12 @@ const Register = () => {
                       <div>
                         <button
                           onClick={handleGoogleLogin}
-                          className="mt-6 btn w-full  border-blue-600 space-x-3 tracking-widest"
+                          className="mt-6 btn bg-green-100 w-full  border-green-600 space-x-3 tracking-widest"
                         >
                           <FcGoogle className="text-2xl"></FcGoogle>
                           <span className="text-lg font-bold">Google</span>
                         </button>
-                        <button className="mt-2 btn w-full border-blue-600 space-x-3 tracking-widest">
+                        <button className="mt-2 btn bg-green-100 w-full border-green-600 space-x-3 tracking-widest">
                           <BsGithub className="text-2xl"></BsGithub>
                           <span className="text-lg font-bold">Github</span>
                         </button>
@@ -225,8 +233,8 @@ const Register = () => {
                     </div>
                     <div className="mt-8 text-center">
                       <h1 className="text-3xl font-bold">Find Us On</h1>
-                      <div className="border-blue-400 border-2 mt-6">
-                        <div className=" border-blue-400 border-b-2 p-4">
+                      <div className="border-green-400 border-2 mt-6">
+                        <div className=" border-green-400 border-b-2 p-4">
                           <a
                             href=""
                             className="flex text-xl pl-10 font-semibold items-center gap-2"
@@ -235,7 +243,7 @@ const Register = () => {
                             <span>FaceBook</span>
                           </a>
                         </div>
-                        <div className="border-blue-400  border-b-2 p-4">
+                        <div className="border-green-400  border-b-2 p-4">
                           <a
                             href=""
                             className="flex text-xl pl-10 font-semibold items-center gap-2"
@@ -261,6 +269,7 @@ const Register = () => {
             </div>
           </div>
         </div>
+        <Footer></Footer>
       </div>
     );
 };

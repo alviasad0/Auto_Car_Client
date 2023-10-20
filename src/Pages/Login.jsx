@@ -7,6 +7,7 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import Footer from "../Components/Footer";
 
 
 const Login = () => {
@@ -65,22 +66,34 @@ const location = useLocation();
           });
           console.log(error.message);
         });
-      console.log("glg mam  coming");
+      console.log("Google mama  coming");
     };
     return (
       <div>
         <Navbar></Navbar>
         <div
-          data-aos="flip-left"
+          data-aos="fade-down"
           data-aos-easing="ease-out-cubic"
-          data-aos-duration="2000"
-          className="bg-red-50 container mx-auto md:p-10 mt-10 rounded-lg"
+          data-aos-duration="1500"
+          className="bg-green-50 container mx-auto md:p-10 mt-10 rounded-lg"
         >
           <div className="text-center ">
-            <h1 className="text-5xl font-bold pb-20 pt-10">Login now!</h1>
+            <h1
+              className="text-5xl font-bold pb-20 pt-10"
+              data-aos="fade-up"
+              data-aos-easing="linear"
+              data-aos-duration="3000"
+            >
+              Login now!
+            </h1>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6  ">
-            <div className="col-span-3">
+            <div
+              className="col-span-3"
+              data-aos="fade-right"
+              data-aos-easing="linear"
+              data-aos-duration="3000"
+            >
               <form onSubmit={handleLogin} className="card-body">
                 <div className="form-control">
                   <label className="label">
@@ -111,16 +124,15 @@ const location = useLocation();
                   />
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-secondary text-white tracking-widest text-2xl">
+                  <button className="btn btn-success  tracking-widest text-2xl">
                     Login
                   </button>
                 </div>
                 <p className="text-lg text-black  font-medium">
                   Do not have an account ?{" "}
-                                <Link
-                                    
+                  <Link
                     to="/register"
-                    className="text-violet-600 text-xl font-bold"
+                    className="text-green-600 text-xl font-bold"
                   >
                     {" "}
                     Register
@@ -130,8 +142,8 @@ const location = useLocation();
             </div>
             <div
               data-aos="fade-left"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
+              data-aos-easing="linear"
+              data-aos-duration="3000"
             >
               <div>
                 <div>
@@ -139,12 +151,12 @@ const location = useLocation();
                   <div>
                     <button
                       onClick={handleGoogleLogin}
-                      className="mt-6 btn w-full  border-blue-600 space-x-3 tracking-widest"
+                      className="mt-6 bg-green-100 btn w-full  border-green-600 space-x-3 tracking-widest"
                     >
                       <FcGoogle className="text-2xl"></FcGoogle>
                       <span className="text-lg font-bold">Google</span>
                     </button>
-                    <button className="mt-2 btn w-full border-blue-600 space-x-3 tracking-widest">
+                    <button className="mt-2 btn bg-green-100 w-full border-green-600 space-x-3 tracking-widest">
                       <BsGithub className="text-2xl"></BsGithub>
                       <span className="text-lg font-bold">Github</span>
                     </button>
@@ -152,8 +164,8 @@ const location = useLocation();
                 </div>
                 <div className="mt-8 text-center">
                   <h1 className="text-3xl font-bold">Find Us On</h1>
-                  <div className="border-blue-400 border-2 mt-6">
-                    <div className=" border-blue-400 border-b-2 p-4">
+                  <div className="border-green-400 border-2 mt-6">
+                    <div className=" border-green-400 border-b-2 p-4">
                       <a
                         href=""
                         className="flex text-xl pl-10 font-semibold items-center gap-2"
@@ -162,7 +174,7 @@ const location = useLocation();
                         <span>FaceBook</span>
                       </a>
                     </div>
-                    <div className="border-blue-400  border-b-2 p-4">
+                    <div className="border-green-400  border-b-2 p-4">
                       <a
                         href=""
                         className="flex text-xl pl-10 font-semibold items-center gap-2"
@@ -186,6 +198,7 @@ const location = useLocation();
             </div>
           </div>
         </div>
+        <Footer></Footer>
       </div>
     );
 };
