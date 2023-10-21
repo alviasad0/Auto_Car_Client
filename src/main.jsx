@@ -1,23 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-import './index.css'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Root from './Root/Root.jsx'
-import ErrorPage from './ErrorPage/ErrorPage';
-import Home from './Pages/Home.jsx'
-import Login from './Pages/Login.jsx'
-import Register from './Pages/Register.jsx'
-import AddProduct from './Pages/AddProduct'
-import BrandDetails from './Pages/BrandDetails';
-import ProductDetails from './Components/ProductDetails';
-import ProductUpdate from './Components/ProductUpdate';
-import AuthProvider from './Providers/AuthProvider'
-import PrivateRouter from './PrivateRoute/PrivateRoute'
-import AddToCart from './Pages/AddToCart'
-
-
-
+import "./index.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Root from "./Root/Root.jsx";
+import ErrorPage from "./ErrorPage/ErrorPage";
+import Home from "./Pages/Home.jsx";
+import Login from "./Pages/Login.jsx";
+import Register from "./Pages/Register.jsx";
+import AddProduct from "./Pages/AddProduct";
+import BrandDetails from "./Pages/BrandDetails";
+import ProductDetails from "./Components/ProductDetails";
+import ProductUpdate from "./Components/ProductUpdate";
+import AuthProvider from "./Providers/AuthProvider";
+import PrivateRouter from "./PrivateRoute/PrivateRoute";
+import AddToCart from "./Pages/AddToCart";
 
 const router = createBrowserRouter([
   {
@@ -52,7 +49,7 @@ const router = createBrowserRouter([
             <AddToCart></AddToCart>
           </PrivateRouter>
         ),
-        loader: () => fetch("http://localhost:5000/cart"),
+        loader: () => fetch("https://automotiv.vercel.app/cart"),
       },
       {
         path: "/brandDetails/:brand_name",
@@ -66,7 +63,7 @@ const router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(`https://automotiv.vercel.app/products/${params.id}`),
       },
       {
         path: "productUpdate/:id",
@@ -76,7 +73,7 @@ const router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(`https://automotiv.vercel.app/products/${params.id}`),
       },
     ],
   },

@@ -31,7 +31,7 @@ const Navbar = () => {
           }
           to="/addProduct"
         >
-          Add Product
+          Add Cars
         </NavLink>
       </li>
       <li className="text-xl font-medium">
