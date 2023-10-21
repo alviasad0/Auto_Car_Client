@@ -93,7 +93,7 @@ const Navbar = () => {
                   {links}
                   <select data-choose-theme>
                     <option value="" className="">
-                     default
+                     Light
                     </option>
                     <option value="dark">Dark</option>
                   </select>
