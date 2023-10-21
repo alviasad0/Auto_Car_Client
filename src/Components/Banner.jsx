@@ -32,7 +32,7 @@ const Banner = () => {
                 Car dealerships may sell new cars from one or several
                 manufacturers
               </p>
-              <div className="flex gap-6 justify-center pt-10">
+              <div className="flex flex-col md:flex-row gap-6 justify-center pt-10">
                 <div>
                   <div className="rating rating-md rating-half">
                     <input

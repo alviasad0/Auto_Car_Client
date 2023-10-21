@@ -11,12 +11,19 @@ const ProductDetails = () => {
     const product = useLoaderData()
    const { user } = useContext(AuthContext);
   const email = user.email;
-  const {_id } = product
-  const handleSendToCart =(_id, email) => {
+ 
+  const handleSendToCart = (product, email) => {
+    const { name , brand_name , price ,image_url, rating,_id } = product
     const cartItems = {
-      email, 
+      email,
+      name,
+      brand_name,
+      price,
+      rating,
+      _id,
+      image_url,
       
-    }
+    };
     fetch("http://localhost:5000/cart", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -28,13 +35,12 @@ const ProductDetails = () => {
         if (data.insertedId) {
           Swal.fire(
             "Good job!",
-            "Product has added in the database!",
+            "Product has added in MyCart!",
             "success"
           );
-         
         }
       });
-    }
+  };
     console.log(product);
     return (
       <div>
@@ -44,11 +50,27 @@ const ProductDetails = () => {
             <div className="grid grid-col-1 lg:grid-cols-5 gap-20  justify-center">
               {/* main section */}
               <div className="col-span-3  ">
-                <div className="card  bg-green-100 ">
+                <div
+                  data-aos="fade-down"
+                  data-aos-easing="linear"
+                  data-aos-duration="1500"
+                  className="card  bg-green-100 "
+                >
                   <figure>
-                    <img src={product.image_url} alt="Shoes" />
+                    <img
+                      data-aos="fade-right"
+                      data-aos-easing="linear"
+                      data-aos-duration="3000"
+                      src={product.image_url}
+                      alt="Shoes"
+                    />
                   </figure>
-                  <div className="card-body">
+                  <div
+                    data-aos="fade-left"
+                    data-aos-easing="linear"
+                    data-aos-duration="3000"
+                    className="card-body"
+                  >
                     <h2 className="text-4xl text-black font-bold ">
                       Model :{" "}
                       <i>
@@ -75,7 +97,7 @@ const ProductDetails = () => {
                     </p>
                     <div className="card-actions justify-end">
                       <button
-                        onClick={()=>handleSendToCart(_id, email)}
+                        onClick={() => handleSendToCart(product, email)}
                         className="btn btn-success"
                       >
                         Add To Cart
